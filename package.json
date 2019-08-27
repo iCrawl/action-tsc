@@ -1,0 +1,32 @@
+{
+	"name": "action-tsc",
+	"version": "1.0.0",
+	"description": "TSC action",
+	"main": "dist/main.js",
+	"author": "iCrawl <icrawltogo@gmail.com>",
+	"license": "UNLICENSED",
+	"private": true,
+	"scripts": {
+		"prebuild": "yarn lint",
+		"build": "rimraf dist && tsc",
+		"lint": "eslint src --ext .ts"
+	},
+	"dependencies": {
+		"@actions/core": "^1.0.0",
+		"@actions/exec": "^1.0.0",
+		"@actions/github": "^1.0.0"
+	},
+	"devDependencies": {
+		"@octokit/rest": "^16.28.7",
+		"@types/node": "^12.7.2",
+		"@typescript-eslint/eslint-plugin": "^2.0.0",
+		"@typescript-eslint/parser": "^2.0.0",
+		"eslint": "^6.2.1",
+		"eslint-config-marine": "^4.2.0",
+		"rimraf": "^3.0.0",
+		"typescript": "^3.5.3"
+	},
+	"eslintConfig": {
+		"extends": "marine/node"
+	}
+}
