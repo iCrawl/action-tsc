@@ -121,8 +121,7 @@ async function run() {
 				stdout: async (data: Buffer) => {
 					await check(data.toString());
 				}
-			},
-			ignoreReturnCode: true
+			}
 		});
 	} catch (error) {
 		setFailed(error.message);
