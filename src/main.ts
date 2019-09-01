@@ -10,7 +10,7 @@ const ACTION_NAME = 'TSC';
 
 async function lint(data: string) {
 	const annotations: ChecksUpdateParamsOutputAnnotations[] = [];
-	const results = [...data.matchAll(/^([^()]+)\((\d+),(\d)\): (error|warning) (.+): (.+)$/gm)];
+	const results = [...data.matchAll(/^([^()]+)\((\d+),(\d+)\): (error|warning) (.+): (.+)$/gm)];
 	for (const res of results) {
 		const [, path, line, column, severity, ruleId, message] = res;
 		annotations.push({
