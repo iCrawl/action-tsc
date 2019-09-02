@@ -127,15 +127,17 @@ async function check(data: string) {
 		debug(output.summary);
 		if (conclusion === 'failure') setFailed(output.summary);
 	} catch (error) {
-		try {
-			await octokit.checks.update({
-				...context.repo,
-				check_run_id: id,
-				conclusion: 'failure',
-				completed_at: new Date().toISOString()
-			});
-		} catch {
-			console.log('##[warning] Token doesn\'t have permission to access this resource.');
+		if (id) {
+			try {
+				await octokit.checks.update({
+					...context.repo,
+					check_run_id: id,
+					conclusion: 'failure',
+					completed_at: new Date().toISOString()
+				});
+			} catch {
+				console.log('##[warning] Token doesn\'t have permission to access this resource.');
+			}
 		}
 		setFailed(error.message);
 	}
