@@ -41,32 +41,41 @@ async function check(data: string) {
 	let currentSha: string;
 	let info;
 	if (context.issue && context.issue.number) {
-		info = await octokit.graphql(`query($owner: String!, $name: String!, $prNumber: Int!) {
-			repository(owner: $owner, name: $name) {
-				pullRequest(number: $prNumber) {
-					files(first: 100) {
-						nodes {
-							path
+		try {
+			info = await octokit.graphql(`query($owner: String!, $name: String!, $prNumber: Int!) {
+				repository(owner: $owner, name: $name) {
+					pullRequest(number: $prNumber) {
+						files(first: 100) {
+							nodes {
+								path
+							}
 						}
-					}
-					commits(last: 1) {
-						nodes {
-							commit {
-								oid
+						commits(last: 1) {
+							nodes {
+								commit {
+									oid
+								}
 							}
 						}
 					}
 				}
-			}
-		}`,
-		{
-			owner: context.repo.owner,
-			name: context.repo.repo,
-			prNumber: context.issue.number
-		});
-		currentSha = info.repository.pullRequest.commits.nodes[0].commit.oid;
+			}`,
+			{
+				owner: context.repo.owner,
+				name: context.repo.repo,
+				prNumber: context.issue.number
+			});
+		} catch {
+			console.log('##[warning] Token doesn\'t have permission to access this resource.');
+		}
+		if (info) currentSha = info.repository.pullRequest.commits.nodes[0].commit.oid;
+		else currentSha = GITHUB_SHA!;
 	} else {
-		info = await octokit.repos.getCommit({ owner: context.repo.owner, repo: context.repo.repo, ref: GITHUB_SHA! });
+		try {
+			info = await octokit.repos.getCommit({ owner: context.repo.owner, repo: context.repo.repo, ref: GITHUB_SHA! });
+		} catch {
+			console.log('##[warning] Token doesn\'t have permission to access this resource.');
+		}
 		currentSha = GITHUB_SHA!;
 	}
 	debug(`Commit: ${currentSha}`);
@@ -74,42 +83,60 @@ async function check(data: string) {
 	let id: number | undefined;
 	const jobName = getInput('job-name');
 	if (jobName) {
-		const checks = await octokit.checks.listForRef({
-			...context.repo,
-			status: 'in_progress',
-			ref: currentSha
-		});
-		const check = checks.data.check_runs.find(({ name }) => name.toLowerCase() === jobName.toLowerCase());
-		if (check) id = check.id;
+		try {
+			const checks = await octokit.checks.listForRef({
+				...context.repo,
+				status: 'in_progress',
+				ref: currentSha
+			});
+			const check = checks.data.check_runs.find(({ name }) => name.toLowerCase() === jobName.toLowerCase());
+			if (check) id = check.id;
+		} catch {
+			console.log('##[warning] Token doesn\'t have permission to access this resource.');
+		}
 	}
 	if (!id) {
-		id = (await octokit.checks.create({
-			...context.repo,
-			name: ACTION_NAME,
-			head_sha: currentSha,
-			status: 'in_progress',
-			started_at: new Date().toISOString()
-		})).data.id;
+		try {
+			id = (await octokit.checks.create({
+				...context.repo,
+				name: ACTION_NAME,
+				head_sha: currentSha,
+				status: 'in_progress',
+				started_at: new Date().toISOString()
+			})).data.id;
+		} catch {
+			console.log('##[warning] Token doesn\'t have permission to access this resource.');
+		}
 	}
 
 	try {
 		const { conclusion, output } = await lint(data);
-		await octokit.checks.update({
-			...context.repo,
-			check_run_id: id,
-			completed_at: new Date().toISOString(),
-			conclusion,
-			output
-		});
+		if (id) {
+			try {
+				await octokit.checks.update({
+					...context.repo,
+					check_run_id: id,
+					completed_at: new Date().toISOString(),
+					conclusion,
+					output
+				});
+			} catch {
+				console.log('##[warning] Token doesn\'t have permission to access this resource.');
+			}
+		}
 		debug(output.summary);
 		if (conclusion === 'failure') setFailed(output.summary);
 	} catch (error) {
-		await octokit.checks.update({
-			...context.repo,
-			check_run_id: id,
-			conclusion: 'failure',
-			completed_at: new Date().toISOString()
-		});
+		try {
+			await octokit.checks.update({
+				...context.repo,
+				check_run_id: id,
+				conclusion: 'failure',
+				completed_at: new Date().toISOString()
+			});
+		} catch {
+			console.log('##[warning] Token doesn\'t have permission to access this resource.');
+		}
 		setFailed(error.message);
 	}
 }
