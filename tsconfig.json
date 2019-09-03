@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"strict": true,
 		"moduleResolution": "node",
-		"module": "commonjs",
+		"module": "esnext",
 		"target": "es2019",
 		"lib": [
 			"esnext",
