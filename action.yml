@@ -5,4 +5,4 @@ inputs:
     description: 'Optional name of the annotation author.'
 runs:
   using: 'node12'
-  main: 'dist/main.js'
+  main: 'dist/index.js'
