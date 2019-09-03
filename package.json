@@ -2,7 +2,7 @@
 	"name": "action-tsc",
 	"version": "1.0.0",
 	"description": "TSC action",
-	"main": "dist/main.js",
+	"main": "dist/index.js",
 	"author": "iCrawl <icrawltogo@gmail.com>",
 	"license": "UNLICENSED",
 	"private": true,
