@@ -1,5 +1,9 @@
-name: 'TSC'
-description: 'TSC'
+name: 'Typescript compiler'
+description: 'Compile your Typescript code and check for errors.'
+author: 'iCrawl'
+branding:
+  icon: alert-circle
+  color: blue
 inputs:
   job-name:
     description: 'Optional name of the annotation author.'

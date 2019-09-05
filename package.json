@@ -1,7 +1,7 @@
 {
 	"name": "action-tsc",
 	"version": "1.0.0",
-	"description": "TSC action",
+	"description": "Typescript compiler action",
 	"main": "dist/index.js",
 	"author": "iCrawl <icrawltogo@gmail.com>",
 	"license": "UNLICENSED",
