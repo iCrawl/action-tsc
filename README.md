@@ -1,5 +1,7 @@
 # action-tsc
-> TSC [action](https://github.com/features/actions)
+> Typescript compiler [action](https://github.com/features/actions)
+
+Compile your Typescript code and check for errors.
 
 ## Usage
 
