@@ -12,19 +12,19 @@
 		"lint": "eslint src --ext .ts"
 	},
 	"dependencies": {
-		"@actions/core": "^1.0.0",
-		"@actions/exec": "^1.0.0",
-		"@actions/github": "^1.0.0"
+		"@actions/core": "^1.1.0",
+		"@actions/exec": "^1.0.1",
+		"@actions/github": "^1.1.0"
 	},
 	"devDependencies": {
-		"@octokit/rest": "^16.28.7",
-		"@types/node": "^12.7.2",
-		"@typescript-eslint/eslint-plugin": "^2.0.0",
-		"@typescript-eslint/parser": "^2.0.0",
-		"@zeit/ncc": "^0.20.4",
-		"eslint": "^6.2.1",
+		"@octokit/rest": "^16.28.9",
+		"@types/node": "^12.7.4",
+		"@typescript-eslint/eslint-plugin": "^2.2.0",
+		"@typescript-eslint/parser": "^2.2.0",
+		"@zeit/ncc": "^0.20.5",
+		"eslint": "^6.3.0",
 		"eslint-config-marine": "^4.2.0",
-		"typescript": "^3.5.3"
+		"typescript": "^3.6.3"
 	},
 	"eslintConfig": {
 		"extends": "marine/node"
