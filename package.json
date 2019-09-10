@@ -22,7 +22,7 @@
 		"@typescript-eslint/eslint-plugin": "^2.0.0",
 		"@typescript-eslint/parser": "^2.0.0",
 		"@zeit/ncc": "^0.20.4",
-		"eslint": "^6.2.1",
+		"eslint": "^6.3.0",
 		"eslint-config-marine": "^4.2.0",
 		"typescript": "^3.5.3"
 	},
