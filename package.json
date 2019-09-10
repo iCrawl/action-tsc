@@ -24,7 +24,7 @@
 		"@zeit/ncc": "^0.20.5",
 		"eslint": "^6.3.0",
 		"eslint-config-marine": "^4.2.0",
-		"typescript": "^3.5.3"
+		"typescript": "^3.6.3"
 	},
 	"eslintConfig": {
 		"extends": "marine/node"
