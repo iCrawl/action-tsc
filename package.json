@@ -20,7 +20,7 @@
 		"@octokit/rest": "^16.33.1",
 		"@types/node": "^12.7.12",
 		"@typescript-eslint/eslint-plugin": "^2.3.3",
-		"@typescript-eslint/parser": "^2.3.3",
+		"@typescript-eslint/parser": "^2.4.0",
 		"@zeit/ncc": "^0.20.5",
 		"eslint": "^6.5.1",
 		"eslint-config-marine": "^5.0.0",
