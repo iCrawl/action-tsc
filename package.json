@@ -23,7 +23,7 @@
 		"@typescript-eslint/parser": "^2.6.0",
 		"@zeit/ncc": "^0.20.5",
 		"eslint": "^6.6.0",
-		"eslint-config-marine": "^5.1.0",
+		"eslint-config-marine": "^5.3.0",
 		"typescript": "^3.6.4"
 	},
 	"eslintConfig": {
