@@ -18,7 +18,7 @@
 	},
 	"devDependencies": {
 		"@octokit/rest": "^16.35.2",
-		"@types/node": "^12.12.18",
+		"@types/node": "^12.12.19",
 		"@typescript-eslint/eslint-plugin": "^2.12.0",
 		"@typescript-eslint/parser": "^2.12.0",
 		"@zeit/ncc": "^0.20.5",
