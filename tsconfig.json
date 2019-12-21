@@ -10,7 +10,6 @@
 			"esnext.asynciterable",
 			"esnext.intl",
 			"esnext.symbol",
-			"es2020"
 		],
 		"sourceMap": false,
 		"inlineSourceMap": true,

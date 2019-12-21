@@ -27,8 +27,6 @@ jobs:
       uses: icrawl/action-tsc@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        job-name: tsc
 ```
 
 ## Contributing
