@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { exec } from '@actions/exec';
-import { getInput } from '@actions/core';
+import { getInput, setFailed } from '@actions/core';
 
 async function run() {
 	const project = getInput('project');
@@ -19,7 +19,11 @@ async function run() {
 	if (build) {
 		args.push('--build', build);
 	}
-	await exec('node', args);
+	try {
+		await exec('node', args);
+	} catch (error) {
+		setFailed('');
+	}
 }
 
 run();
