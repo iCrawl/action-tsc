@@ -5,8 +5,12 @@ branding:
   icon: alert-circle
   color: blue
 inputs:
-  job-name:
-    description: 'Optional name of the annotation author.'
+  project:
+    description: 'Optional project path.'
+    required: false
+  build:
+    description: 'Optional build reference path.'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
