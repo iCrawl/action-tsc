@@ -4,7 +4,7 @@ import { getInput, setFailed } from '@actions/core';
 
 async function run() {
 	const project = getInput('project');
-	const build = getInput('project');
+	const build = getInput('build');
 	console.log(`##[add-matcher]${join(__dirname, '..', '.github', 'tsc.json')}`);
 	const args = [
 		`${join(process.cwd(), 'node_modules/typescript/bin/tsc')}`,
