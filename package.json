@@ -12,17 +12,17 @@
 		"lint": "eslint src --ext .ts"
 	},
 	"dependencies": {
-		"@actions/core": "^1.2.0",
-		"@actions/exec": "^1.0.2"
+		"@actions/core": "^1.2.1",
+		"@actions/exec": "^1.0.3"
 	},
 	"devDependencies": {
-		"@types/node": "^13.1.0",
-		"@typescript-eslint/eslint-plugin": "^2.13.0",
-		"@typescript-eslint/parser": "^2.13.0",
-		"@zeit/ncc": "^0.20.5",
+		"@types/node": "^13.1.6",
+		"@typescript-eslint/eslint-plugin": "^2.16.0",
+		"@typescript-eslint/parser": "^2.16.0",
+		"@zeit/ncc": "^0.21.0",
 		"eslint": "^6.8.0",
 		"eslint-config-marine": "^5.3.2",
-		"eslint-config-prettier": "^6.7.0",
+		"eslint-config-prettier": "^6.9.0",
 		"eslint-plugin-prettier": "^3.1.2",
 		"prettier": "^1.19.1",
 		"typescript": "^3.7.4"
