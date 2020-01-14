@@ -25,8 +25,6 @@ jobs:
       run: yarn install
     - name: tsc
       uses: icrawl/action-tsc@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Contributing
