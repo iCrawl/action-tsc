@@ -18,6 +18,7 @@ async function run() {
 	}
 	if (build) {
 		args.splice(1, 0, '--build', build);
+		args.splice(3,2); // Remove --noEmit and --noErrorTruncation, which are unsupported with --build
 	}
 	try {
 		await exec('node', args);
