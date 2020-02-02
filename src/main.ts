@@ -17,7 +17,7 @@ async function run() {
 		args.push('--project', project);
 	}
 	if (build) {
-		args.unshift('--build', build);
+		args.splice(1, 0, '--build', build);
 	}
 	try {
 		await exec('node', args);
