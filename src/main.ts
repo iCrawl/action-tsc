@@ -1,6 +1,6 @@
-import { join } from 'path';
-import { exec } from '@actions/exec';
 import { getInput, setFailed } from '@actions/core';
+import { exec } from '@actions/exec';
+import { join } from 'path';
 
 async function run() {
 	const project = getInput('project');
@@ -18,7 +18,8 @@ async function run() {
 	}
 	if (build) {
 		args.splice(1, 0, '--build', build);
-		args.splice(3,2); // Remove --noEmit and --noErrorTruncation, which are unsupported with --build
+		// Remove --noEmit and --noErrorTruncation, which are unsupported with --build
+		args.splice(3, 2);
 	}
 	try {
 		await exec('node', args);
