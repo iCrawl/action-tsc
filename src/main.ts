@@ -12,6 +12,8 @@ async function run() {
 		'--noErrorTruncation',
 		'--pretty',
 		'false',
+		'--incremental',
+		'false',
 	];
 	if (project) {
 		args.push('--project', project);
@@ -20,6 +22,8 @@ async function run() {
 		args.splice(1, 0, '--build', build);
 		// Remove --noEmit and --noErrorTruncation, which are unsupported with --build
 		args.splice(3, 2);
+		// Change --incremental false for --incremental true, as incremental builds are required for composite builds
+		args.splice(-1, 1, 'true');
 	}
 	try {
 		await exec('node', args);
