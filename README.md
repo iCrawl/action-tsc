@@ -27,15 +27,6 @@ jobs:
       uses: icrawl/action-tsc@v1
 ```
 
-### Adding `tsc`
-
-If you're using an IDE with direct TypeScript support (such as Visual Studio) and don't have a dependency in your `package.json` you can add it using `yarn` before `icrawl/action-tsc`:
-
-```yml
-    - name: yarn get tsc
-      run: yarn add typescript --dev
-```
-
 ### Passing command-line parameters to `tsc`
 
 You can pass the `--project` parameter to `tsc` if your `tsconfig.json` is not in the root of your project:
