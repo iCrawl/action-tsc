@@ -5,7 +5,7 @@ devDependencies:
   '@types/node': 13.5.0
   '@typescript-eslint/eslint-plugin': 2.17.0_ddf39c6589a88df1614edc9f5f44e849
   '@typescript-eslint/parser': 2.17.0_eslint@6.8.0+typescript@3.7.5
-  '@zeit/ncc': 0.21.0
+  '@zeit/ncc': 0.22.0
   eslint: 6.8.0
   eslint-config-marine: 6.0.0_6f1b618af774024e27876dd9bf4b3e62
   eslint-config-prettier: 6.9.0_eslint@6.8.0
@@ -126,11 +126,11 @@ packages:
         optional: true
     resolution:
       integrity: sha512-g0eVRULGnEEUakxRfJO0s0Hr1LLQqsI6OrkiCLpdHtdJJek+wyd8mb00vedqAoWldeDcOcP8plqw8/jx9Gr3Lw==
-  /@zeit/ncc/0.21.0:
+  /@zeit/ncc/0.22.0:
     dev: true
     hasBin: true
     resolution:
-      integrity: sha512-RUMdvVK/w78oo+yBjruZltt0kJXYar2un/1bYQ2LuHG7GmFVm+QjxzEmySwREctaJdEnBvlMdUNWd9hXHxEI3g==
+      integrity: sha512-zaS6chwztGSLSEzsTJw9sLTYxQt57bPFBtsYlVtbqGvmDUsfW7xgXPYofzFa1kB9ur2dRop6IxCwPnWLBVCrbQ==
   /acorn-jsx/5.1.0_acorn@7.1.0:
     dependencies:
       acorn: 7.1.0
@@ -1086,7 +1086,7 @@ specifiers:
   '@types/node': ^13.5.0
   '@typescript-eslint/eslint-plugin': ^2.17.0
   '@typescript-eslint/parser': ^2.17.0
-  '@zeit/ncc': ^0.21.0
+  '@zeit/ncc': ^0.22.0
   eslint: ^6.8.0
   eslint-config-marine: ^6.0.0
   eslint-config-prettier: ^6.9.0
