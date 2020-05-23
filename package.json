@@ -9,28 +9,26 @@
 	"scripts": {
 		"prebuild": "pnpm run lint",
 		"build": "ncc build src/main.ts --minify",
-		"lint": "eslint src --ext .ts"
+		"lint": "eslint src --ext .ts",
+		"lint:fix": "eslint src --ext .ts --fix"
 	},
 	"dependencies": {
-		"@actions/core": "^1.2.2",
-		"@actions/exec": "^1.0.3"
+		"@actions/core": "^1.2.4",
+		"@actions/exec": "^1.0.4"
 	},
 	"devDependencies": {
-		"@types/node": "^13.5.0",
-		"@typescript-eslint/eslint-plugin": "^2.17.0",
-		"@typescript-eslint/parser": "^2.17.0",
-		"@zeit/ncc": "^0.21.0",
-		"eslint": "^6.8.0",
-		"eslint-config-marine": "^6.0.0",
-		"eslint-config-prettier": "^6.9.0",
-		"eslint-plugin-prettier": "^3.1.2",
-		"prettier": "^1.19.1",
-		"typescript": "^3.7.5"
+		"@types/node": "^14.0.5",
+		"@typescript-eslint/eslint-plugin": "^3.0.0",
+		"@typescript-eslint/parser": "^3.0.0",
+		"@zeit/ncc": "^0.22.3",
+		"eslint": "^7.1.0",
+		"eslint-config-marine": "^7.0.1",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-prettier": "^3.1.3",
+		"prettier": "^2.0.5",
+		"typescript": "^3.9.3"
 	},
 	"eslintConfig": {
 		"extends": "marine/prettier/node"
-	},
-	"renovate": {
-		"extends": ["teal"]
 	}
 }
