@@ -11,6 +11,10 @@ inputs:
   build:
     description: 'Optional build reference path.'
     required: false
+  executable:
+    description: 'Compilation Executable (tsc or ttsc)'
+    default: 'tsc'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
