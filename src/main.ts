@@ -8,7 +8,7 @@ async function run() {
 	const executable = getInput('executable');
 	console.log(`##[add-matcher]${join(__dirname, '..', '.github', 'tsc.json')}`);
 	const args = [
-		`${join(process.cwd(), 'node_modules/typescript/bin', executable)}`,
+		`${join(process.cwd(), 'node_modules/.bin', executable)}`,
 		'--noEmit',
 		'--noErrorTruncation',
 		'--pretty',
